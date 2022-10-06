@@ -59,6 +59,7 @@ class HomeTableTableViewController: UITableViewController {
             self.tableView.reloadData()
             
         }, failure: { (Error) in
+            print(Error.localizedDescription)
             print("Could not get tweet")
         })
         
@@ -100,10 +101,14 @@ class HomeTableTableViewController: UITableViewController {
         return cell
     }
     
+//
+//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
+//
+//    }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row + 1 == tweetArray.count{
-            loadTweets()
+            loadMoreTweets()
         }
     }
     
